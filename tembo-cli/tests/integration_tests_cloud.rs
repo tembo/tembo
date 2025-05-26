@@ -137,7 +137,7 @@ fn setup_env(instance_name: &String) -> Result<(), Box<dyn Error>> {
 
     replace_vars_in_file(
         tembo_credentials_file_path(),
-        "https://api.tembo.io",
+        "https://cloud-api.tembo.io",
         &get_var("TEMBO_HOST", "https://api.cdb-dev.com")?,
     )?;
 

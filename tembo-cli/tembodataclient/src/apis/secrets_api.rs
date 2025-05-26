@@ -1,7 +1,7 @@
 /*
  * Tembo Data API
  *
- * In the case of large or sensitive data, we avoid collecting it into Tembo Cloud. Instead, there is a Tembo Data API for each region, cloud, or private data plane.             </br>             </br>             To find the Tembo Cloud API, please find it [here](https://api.tembo.io/swagger-ui/).
+ * In the case of large or sensitive data, we avoid collecting it into Tembo Cloud. Instead, there is a Tembo Data API for each region, cloud, or private data plane.             </br>             </br>             To find the Tembo Cloud API, please find it [here](https://cloud-api.tembo.io/swagger-ui/).
  *
  * The version of the OpenAPI document: v0.0.1
  *

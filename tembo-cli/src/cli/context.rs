@@ -26,7 +26,7 @@ pub const CREDENTIALS_EXAMPLE_TEXT: &str = "version = \"1.0\"
 [[profile]]
 name = 'prod'
 tembo_access_token = 'ACCESS_TOKEN'
-tembo_host = 'https://api.tembo.io'
+tembo_host = 'https://cloud-api.tembo.io'
 tembo_data_host = 'https://api.data-1.use1.tembo.io'
 ";
 
@@ -53,7 +53,7 @@ pub const CREDENTIALS_DEFAULT_TEXT: &str = "version = \"1.0\"
 # name = 'prod'
 # Generate an Access Token either through 'tembo login' or visit 'https://cloud.tembo.io/generate-jwt'
 # tembo_access_token = 'Access token here'
-# tembo_host = 'https://api.tembo.io'
+# tembo_host = 'https://cloud-api.tembo.io'
 # tembo_data_host = 'https://api.data-1.use1.tembo.io'
 ";
 
