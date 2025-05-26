@@ -76,7 +76,7 @@ async fn main() -> std::io::Result<()> {
             r#"In the case of large or sensitive data, we avoid collecting it into Tembo Cloud. Instead, there is a Tembo Data API for each region, cloud, or private data plane.
             </br>
             </br>
-            To find the Tembo Cloud API, please find it [here](https://api.tembo.io/swagger-ui/).
+            To find the Tembo Cloud API, please find it [here](https://cloud-api.tembo.io/swagger-ui/).
             "#.to_string()
         );
         doc.info.version = "v0.0.1".to_owned();
@@ -85,7 +85,7 @@ async fn main() -> std::io::Result<()> {
             r#"In the case of large or sensitive data, we avoid collecting it into Tembo Cloud. Instead, there is a Tembo Data API for each region, cloud, or private data plane.
             </br>
             </br>
-            To find the Tembo Cloud API, please find it [here](https://api.tembo.io/redoc).
+            To find the Tembo Cloud API, please find it [here](https://cloud-api.tembo.io/redoc).
             "#.to_string()
         );
 

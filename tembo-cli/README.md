@@ -10,14 +10,14 @@ managing, and running Postgres.
 
 Using homebrew
 
-``` sh
+```sh
 brew tap tembo-io/tembo
 brew install tembo-cli
 ```
 
 Using cargo
 
-``` sh
+```sh
 cargo install tembo-cli
 ```
 
@@ -31,7 +31,7 @@ Discover a wide range of commands and subcommands, along with their respective o
 
 Clone this repo and run:
 
-``` sh
+```sh
 cargo install --path .
 ```
 
@@ -39,7 +39,7 @@ If the install path is in your shell path, you can then run `tembo help` and oth
 
 You can run this command to use the local code for any tembo command during development:
 
-``` sh
+```sh
 alias tembo='cargo run --'
 ```
 
@@ -61,7 +61,7 @@ openapi-generator generate -i https://api.data-1.use1.tembo.io/api-docs/openapi.
 
 - Go to `tembodataclient/src/lib.rs` & add following line at the top to disable clippy for the generated code
 
-``` rs
+```rs
 #![allow(clippy::all)]
 ```
 
@@ -72,12 +72,12 @@ Go to `tembo_api_client` directory in your terminal.
 Delete the contents of the directory first and then run following command to re-generate the rust client code for the API.
 
 ```bash
-openapi-generator generate -i https://api.tembo.io/api-docs/openapi.json  -g rust -o . --additional-properties=packageName=tembo_api_client
+openapi-generator generate -i https://cloud-api.tembo.io/api-docs/openapi.json  -g rust -o . --additional-properties=packageName=tembo_api_client
 ```
 
 - Go to `tembo_api_client/src/lib.rs` & add following line at the top to disable clippy for the generated code
 
-``` rs
+```rs
 #![allow(clippy::all)]
 ```
 
@@ -175,7 +175,7 @@ impl FromStr for StackType {
 
 - Add following line towards the end of `tembo_api_client/src/models/mod.rs`
 
-``` rs
+```rs
 pub mod impls;
 ```
 

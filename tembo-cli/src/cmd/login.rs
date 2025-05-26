@@ -87,7 +87,7 @@ pub fn execute(login_cmd: LoginCommand) -> Result<(), anyhow::Error> {
 
 fn url(cmd: Option<&str>) -> Result<String, anyhow::Error> {
     let lifetime = token_lifetime()?;
-    let default_tembo_host = "https://api.tembo.io";
+    let default_tembo_host = "https://cloud-api.tembo.io";
     let modified_tembo_host = cmd.unwrap_or(default_tembo_host);
     let tembo_host = modified_tembo_host.replace("api", "cloud");
     let login_url = tembo_host.clone() + "/cli-success?isCli=true&expiry=" + &lifetime;
@@ -280,7 +280,7 @@ fn append_to_file(file_path: &str, content: String) -> io::Result<()> {
 }
 
 pub fn execute_command(cmd: &LoginCommand, token: &str) -> Result<(), anyhow::Error> {
-    let default_tembo_host = "https://api.tembo.io";
+    let default_tembo_host = "https://cloud-api.tembo.io";
     let default_tembo_data_host = "https://api.data-1.use1.tembo.io";
 
     let tembo_host = cmd

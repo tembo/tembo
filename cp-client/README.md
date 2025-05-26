@@ -1,6 +1,6 @@
-# Rust API client for api.tembo.io
+# Rust API client for cloud-api.tembo.io
 
-Platform API for Tembo Cloud. API documentation is available [here](https://api.tembo.io/swagger-ui/).
+Platform API for Tembo Cloud. API documentation is available [here](https://cloud-api.tembo.io/swagger-ui/).
 
 ## Overview
 
