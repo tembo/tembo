@@ -64,6 +64,7 @@ pub async fn create_backup_job(
         "$(BUCKET_PATH)",
         "--cd",
         "$(MOUNT_PATH)",
+        "--text",
         "--compress",
         "--clean",
     ];
