@@ -44,7 +44,7 @@ impl Default for Config {
                 }
             },
             temback_image: from_env_default("TEMBACK_IMAGE", "quay.io/tembo/temback"),
-            temback_version: from_env_default("TEMBACK_VERSION", "v0.3.0"),
+            temback_version: from_env_default("TEMBACK_VERSION", "v0.3.1"),
         }
     }
 }

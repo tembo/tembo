@@ -65,7 +65,10 @@ pub async fn perform_backup_task(
     let storage_size = coredb::get_storage_size_from_coredb(coredb)?;
     let temback_image_name = &config.temback_image;
     let temback_image_version = &config.temback_version;
-    let temback_image = format!("{temback_image_name}:{temback_image_version}");
+    let temback_image = format!(
+        "{temback_image_name}:{temback_image_version}-pg{}",
+        coredb.spec.pg_major()
+    );
     // Create the backup Job
     create_backup_job(
         kube_client,
