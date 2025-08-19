@@ -160,4 +160,4 @@ Contributions welcome! Open an issue, start a discussion, or submit a pull reque
 
 MIT — see [LICENSE](./LICENSE) for details.
 
-© 2025 Tembo Technologies Inc.
+© 2025 Tembo Data Systems, Inc.
