@@ -1,4 +1,6 @@
-# Tembo - Run Any Coding Agent, One CLI 🚀
+# tembo
+
+one cli, all the coding agents
 
 The universal CLI for running and orchestrating coding agents with advanced multi-agent capabilities and usage tracking.
 
@@ -19,48 +21,72 @@ npm install -g tembo
 Run any coding agent:
 
 ```bash
-tembo run claude
-tembo run cursor
+tembo run claude-code
+tembo run cursor-cli
 tembo run aider
 ```
 
 ## ⚡️ Key Features
 
-🤖 **Universal agent support** - Run Claude Code, Cursor, Aider, or any coding agent through one unified interface
+🤖 **Universal agent support** - Run any coding agent through one unified CLI interface
 
-🎯 **MAX Mode** - Run 3 coding agents simultaneously on the same task with LLM-as-judge evaluation for optimal results
+🎯 **Multi-agent modes** - Run multiple agents simultaneously with intelligent orchestration
 
 📊 **Local usage tracking** - Complete visibility into agent operations with dashboard on localhost
 
-☁️ **Background execution** - Kick off long-running tasks in the cloud with any coding agent (optional Tembo.io account required)
+☁️ **Background execution** - Kick off long-running tasks in the cloud with any coding agent (optional)
 
-🏠 **Works offline** - Core functionality works entirely on your machine without internet dependencies
+🔧 **Custom modes** - Define your own multi-agent workflows and execution patterns
 
-## 🎛️ Agent Modes
+🏠 **Works offline** - Core functionality works entirely on your machine
+
+## 🎛️ Supported Agents
+
+Tembo works with all major coding agents:
+
+- **AmpCode** - `tembo run ampcode`
+- **Cursor CLI** - `tembo run cursor-cli`
+- **Claude Code** - `tembo run claude-code`
+- **Codex** - `tembo run codex`
+- **OpenCode** - `tembo run opencode`
+- **Aider** - `tembo run aider`
+- **OpenCode Clone** - `tembo run opencode-clone`
+- **Gemini CLI** - `tembo run gemini-cli`
+- **Charm CLI** - `tembo run charm-cli`
+
+## 🎭 Execution Modes
 
 ### Standard Mode
 
 Run a single coding agent:
 
 ```bash
-tembo run claude "Fix the authentication bug in src/auth.js"
+tembo run claude-code "Fix the authentication bug in src/auth.js"
 ```
 
 ### MAX Mode
 
-Run 3 agents simultaneously with automatic evaluation:
+Run 3 agents simultaneously with LLM-as-judge evaluation:
 
 ```bash
 tembo run --mode max "Optimize the database queries in the user service"
 ```
 
+### Custom Modes
+
+Define your own multi-agent workflows:
+
+```bash
+tembo run --mode custom-debug "Debug the memory leak in the payment processor"
+```
+
 ### Background Mode
 
-Execute tasks in the cloud (requires login):
+Execute tasks in the cloud:
 
 ```bash
 tembo login
-tembo run --background claude "Refactor the entire codebase for better performance"
+tembo run --background aider "Refactor the entire codebase for better performance"
 ```
 
 ## 📊 Usage Dashboard
@@ -71,6 +97,8 @@ View detailed analytics and reports:
 tembo dashboard
 # Opens localhost dashboard with usage metrics, agent performance, and task history
 ```
+
+Track agent performance, compare results, and analyze usage patterns across all your coding agents.
 
 ## ☁️ Cloud Features
 
@@ -100,16 +128,12 @@ npm install @tembo/sdk
 import { Tembo } from "@tembo/sdk"
 
 const tembo = new Tembo()
-await tembo.run("claude", "Fix the bug in utils.js")
+await tembo.run("claude-code", "Fix the bug in utils.js")
 ```
 
 ### Proxy
 
-Built-in usage tracking and request routing:
-
-```bash
-npx @tembo/proxy start
-```
+Built-in usage tracking and request routing for comprehensive observability.
 
 ## 🤝 Contributing
 
