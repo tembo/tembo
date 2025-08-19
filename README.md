@@ -146,6 +146,12 @@ await tembo.run("claude-code", "Fix the bug in utils.js")
 
 Built-in usage tracking and request routing for comprehensive observability.
 
+```
+npx @tembo/proxy start
+npx @tembo/proxy stop
+npx @tembo/proxy status
+```
+
 ## 🤝 Contributing
 
 Contributions welcome! Open an issue, start a discussion, or submit a pull request.
