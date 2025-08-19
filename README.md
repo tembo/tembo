@@ -44,15 +44,14 @@ tembo run aider
 
 Tembo works with all major coding agents:
 
-- **AmpCode** - `tembo run ampcode`
-- **Cursor CLI** - `tembo run cursor-cli`
-- **Claude Code** - `tembo run claude-code`
-- **Codex** - `tembo run codex`
-- **OpenCode** - `tembo run opencode`
-- **Aider** - `tembo run aider`
-- **OpenCode Clone** - `tembo run opencode-clone`
-- **Gemini CLI** - `tembo run gemini-cli`
-- **Charm CLI** - `tembo run charm-cli`
+- **[Aider](https://aider.chat/)** - `tembo run aider`
+- **[Charm Crush CLI](https://github.com/charmbracelet/crush)** - `tembo run crush`
+- **[Claude Code](https://docs.anthropic.com/en/docs/claude-code)** - `tembo run claude-code`
+- **[Codex CLI](https://openai.com/codex/)** - `tembo run codex`
+- **[Cursor CLI](https://cursor.com/cli)** - `tembo run cursor-cli`
+- **[Gemini CLI](https://github.com/google-gemini/gemini-cli)** - `tembo run gemini`
+- **[Sourcegraph Amp](https://sourcegraph.com/amp)** - `tembo run ampcode`
+- **[SST OpenCode](https://github.com/sst/opencode)** - `tembo run opencode`
 
 ## 🎭 Execution Modes
 
