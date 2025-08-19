@@ -2,8 +2,6 @@
 
 one cli, all the coding agents
 
-The universal CLI for running and orchestrating coding agents with advanced multi-agent capabilities and usage tracking.
-
 ---
 
 [Website](https://tembo.io) • [Docs](https://docs.tembo.io) • [Discord](https://discord.com/invite/tembo)
@@ -34,7 +32,9 @@ tembo run aider
 
 📊 **Local usage tracking** - Complete visibility into agent operations with dashboard on localhost
 
-☁️ **Background execution** - Kick off long-running tasks in the cloud with any coding agent (optional)
+☁️ **Background execution** - Kick off long-running tasks in the cloud with any coding agent
+
+🤝 **Team collaboration** - Share threads, conversations, and coding sessions with your team across any agent
 
 🔧 **Custom modes** - Define your own multi-agent workflows and execution patterns
 
@@ -100,9 +100,21 @@ tembo dashboard
 
 Track agent performance, compare results, and analyze usage patterns across all your coding agents.
 
+## 🤝 Team Collaboration
+
+Share coding sessions and collaborate seamlessly across any agent:
+
+```bash
+tembo login
+tembo run --share cursor-cli "Implement the new payment API"
+tembo share [session-id]  # Share specific coding session with team
+```
+
+Collaborate with your team regardless of which coding agent they prefer - share threads, conversations, and entire coding sessions for seamless teamwork.
+
 ## ☁️ Cloud Features
 
-Sign up for cloud execution capabilities:
+Sign up for cloud execution and collaboration capabilities:
 
 ```bash
 tembo login
