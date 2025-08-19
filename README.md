@@ -1,6 +1,5 @@
-# tembo
-
-one cli, all the coding agents
+<h1>tembo</h1>
+<p>one cli, all the coding agents</p>
 
 ---
 
