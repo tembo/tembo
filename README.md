@@ -22,7 +22,7 @@ Run any coding agent:
 ```bash
 tembo run claude
 tembo run cursor
-tembo run aider
+tembo run amp
 ```
 
 ## Key Features
@@ -35,24 +35,22 @@ tembo run aider
 
 **Background execution** - Kick off long-running tasks in the cloud with any coding agent
 
-**Team collaboration** - Share threads, conversations, and coding sessions with your team across any agent
+**Custom modes (Maybe)** - Define your own multi-agent workflows and execution patterns
 
-**Custom modes** - Define your own multi-agent workflows and execution patterns
-
-**Works offline** - Core functionality works entirely on your machine
+**Team collaboration (Maybe)** - Share threads, conversations, and coding sessions with your team across any agent
 
 ## Supported Agents
 
 Tembo works with all major coding agents:
 
-- **[Aider](https://aider.chat/)** - `tembo run aider`
-- **[Charm Crush CLI](https://github.com/charmbracelet/crush)** - `tembo run crush`
 - **[Claude Code](https://docs.anthropic.com/en/docs/claude-code)** - `tembo run claude`
-- **[Codex CLI](https://openai.com/codex/)** - `tembo run codex`
-- **[Cursor CLI](https://cursor.com/cli)** - `tembo run cursor`
-- **[Gemini CLI](https://github.com/google-gemini/gemini-cli)** - `tembo run gemini`
 - **[Sourcegraph Amp](https://sourcegraph.com/amp)** - `tembo run amp`
+- **[Cursor CLI](https://cursor.com/cli)** - `tembo run cursor`
+- **[Codex CLI](https://openai.com/codex/)** - `tembo run codex`
+- **[Aider](https://aider.chat/)** - `tembo run aider`
 - **[SST OpenCode](https://github.com/sst/opencode)** - `tembo run opencode`
+- **[Charm Crush CLI](https://github.com/charmbracelet/crush)** - `tembo run crush`
+- **[Gemini CLI](https://github.com/google-gemini/gemini-cli)** - `tembo run gemini`
 
 ## Execution Modes
 
@@ -82,7 +80,7 @@ tembo run --mode custom-debug "Debug the memory leak in the payment processor"
 
 ### Background Mode
 
-Execute tasks in the cloud:
+Execute tasks via tembo cloud:
 
 ```bash
 tembo login
@@ -130,7 +128,7 @@ The main command-line interface for running agents and managing tasks.
 
 ### SDK
 
-Programmatically interface with Tembo:
+Programatic interface to tembo cloud:
 
 ```bash
 npm install @tembo/sdk
@@ -139,7 +137,9 @@ npm install @tembo/sdk
 ```javascript
 import { Tembo } from "@tembo/sdk"
 
-const tembo = new Tembo()
+const tembo = new Tembo({
+  apiKey: "your-api-key",
+})
 await tembo.run("claude-code", "Fix the bug in utils.js")
 ```
 
