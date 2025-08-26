@@ -23,11 +23,11 @@ tembo amp
 
 **Universal agent support** - Run any coding agent through one unified CLI interface
 
+**Intelligent task routing** - Tembo intelligently routes tasks to the best agent for the job
+
 **Multi-agent modes** - Run multiple agents simultaneously with intelligent orchestration
 
-**Local usage tracking** - Complete visibility into agent operations with dashboard on localhost
-
-**Background execution** - Kick off long-running tasks in the cloud with any coding agent
+**Background execution** - Kick off long-running tasks in the cloud with any coding agent (requires tembo account)
 
 **Custom modes (Maybe)** - Define your own multi-agent workflows and execution patterns
 
@@ -65,14 +65,6 @@ Run 3 agents simultaneously with LLM-as-judge evaluation:
 tembo claude --mode max "Optimize the database queries in the user service"
 ```
 
-### Custom Modes
-
-Define your own multi-agent workflows:
-
-```bash
-tembo claude --mode custom-debug "Debug the memory leak in the payment processor"
-```
-
 ### Background Mode
 
 Execute tasks in a secure cloud sandbox environment via tembo cloud:
@@ -82,7 +74,13 @@ tembo login
 tembo claude --background "Refactor the entire codebase for better performance"
 ```
 
-Track agent performance, compare results, and analyze usage patterns across all your coding agents.
+### Custom Modes
+
+Define your own multi-agent workflows:
+
+```bash
+tembo claude --mode custom-debug "Debug the memory leak in the payment processor"
+```
 
 ## Cloud Features
 
@@ -105,22 +103,6 @@ tembo share [session-id]  # Share specific coding session with team
 ```
 
 Collaborate with your team regardless of which coding agent they prefer - share threads, conversations, and entire coding sessions for seamless teamwork.
-
-## Components
-
-### CLI
-
-The main command-line interface for running agents and managing tasks.
-
-### Proxy
-
-Built-in usage tracking and request routing for comprehensive observability.
-
-```
-npx @tembo/proxy start
-npx @tembo/proxy stop
-npx @tembo/proxy status
-```
 
 ## Contributing
 
