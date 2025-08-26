@@ -14,9 +14,9 @@ npm install -g tembo
 Run any coding agent:
 
 ```bash
-tembo run claude
-tembo run cursor
-tembo run amp
+tembo claude
+tembo cursor
+tembo amp
 ```
 
 ## Key Features
@@ -62,7 +62,7 @@ tembo run claude-code "Fix the authentication bug in src/auth.js"
 Run 3 agents simultaneously with LLM-as-judge evaluation:
 
 ```bash
-tembo run --mode max "Optimize the database queries in the user service"
+tembo claude --mode max "Optimize the database queries in the user service"
 ```
 
 ### Custom Modes
@@ -70,25 +70,16 @@ tembo run --mode max "Optimize the database queries in the user service"
 Define your own multi-agent workflows:
 
 ```bash
-tembo run --mode custom-debug "Debug the memory leak in the payment processor"
+tembo claude --mode custom-debug "Debug the memory leak in the payment processor"
 ```
 
 ### Background Mode
 
-Execute tasks via tembo cloud:
+Execute tasks in a secure cloud sandbox environment via tembo cloud:
 
 ```bash
 tembo login
-tembo run --background aider "Refactor the entire codebase for better performance"
-```
-
-## Usage Dashboard
-
-View detailed analytics and reports:
-
-```bash
-tembo dashboard
-# Opens localhost dashboard with usage metrics, agent performance, and task history
+tembo claude --background "Refactor the entire codebase for better performance"
 ```
 
 Track agent performance, compare results, and analyze usage patterns across all your coding agents.
