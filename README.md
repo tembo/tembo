@@ -17,6 +17,8 @@ Run any coding agent:
 tembo claude
 tembo cursor
 tembo amp
+tembo codex
+... (more to come)
 ```
 
 ## Key Features
