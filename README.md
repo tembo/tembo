@@ -25,7 +25,7 @@ tembo codex
 
 - **Universal agent support** - Run any coding agent through one unified CLI interface
 
-- **Intelligent task routing** - Tembo intelligently routes tasks to the best agent for the job (optional via running "tembo '<insert-task-here>' and not specifying an agent name)
+- **Intelligent task routing** - Tembo intelligently routes tasks to the best agent for the job (optional via running `tembo '<insert-task-here>'` and not specifying an agent name)
 
 - **Multi-agent modes** - Run multiple agents simultaneously (`MAX` mode)
 
