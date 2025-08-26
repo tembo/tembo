@@ -18,14 +18,14 @@ tembo claude
 tembo cursor
 tembo amp
 tembo codex
-... (more to come)
+...
 ```
 
 ## Key Features
 
 - **Universal agent support** - Run any coding agent through one unified CLI interface
 
-- **Intelligent task routing** - Tembo intelligently routes tasks to the best agent for the job
+- **Intelligent task routing** - Tembo intelligently routes tasks to the best agent for the job (optional via running "tembo '<insert-task-here>' and not specifying an agent name)
 
 - **Multi-agent modes** - Run multiple agents simultaneously with intelligent orchestration
 
@@ -104,7 +104,7 @@ tembo run --share cursor-cli "Implement the new payment API"
 tembo share [session-id]  # Share specific coding session with team
 ```
 
-Collaborate with your team regardless of which coding agent they prefer - share threads, conversations, and entire coding sessions for seamless teamwork.
+Collaborate with your team regardless of which coding agent they prefer - share threads, conversations, and entire coding sessions.
 
 ## Contributing
 
