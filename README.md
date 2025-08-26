@@ -23,17 +23,17 @@ tembo codex
 
 ## Key Features
 
-**Universal agent support** - Run any coding agent through one unified CLI interface
+- **Universal agent support** - Run any coding agent through one unified CLI interface
 
-**Intelligent task routing** - Tembo intelligently routes tasks to the best agent for the job
+- **Intelligent task routing** - Tembo intelligently routes tasks to the best agent for the job
 
-**Multi-agent modes** - Run multiple agents simultaneously with intelligent orchestration
+- **Multi-agent modes** - Run multiple agents simultaneously with intelligent orchestration
 
-**Background execution** - Kick off long-running tasks in the cloud with any coding agent (requires tembo account)
+- **Background execution** - Kick off long-running tasks in the cloud with any coding agent (requires tembo account)
 
-**Custom modes (Maybe)** - Define your own multi-agent workflows and execution patterns
+- **Custom modes (Coming soon)** - Define your own multi-agent workflows and execution patterns
 
-**Team collaboration (Maybe)** - Share threads, conversations, and coding sessions with your team across any agent
+- **Team collaboration (Coming soon)** - Share threads, conversations, and coding sessions with your team across any agent
 
 ## Supported Agents
 
