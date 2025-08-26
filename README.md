@@ -39,15 +39,15 @@ tembo codex
 
 Tembo works with all major coding agents:
 
-- **[Claude Code](https://docs.anthropic.com/en/docs/claude-code)** - `tembo run claude`
-- **[Sourcegraph Amp](https://sourcegraph.com/amp)** - `tembo run amp`
-- **[Cursor CLI](https://cursor.com/cli)** - `tembo run cursor`
-- **[Codex CLI](https://openai.com/codex/)** - `tembo run codex`
-- **[Aider](https://aider.chat/)** - `tembo run aider`
-- **[SST OpenCode](https://github.com/sst/opencode)** - `tembo run opencode`
-- **[Charm Crush CLI](https://github.com/charmbracelet/crush)** - `tembo run crush`
-- **[Gemini CLI](https://github.com/google-gemini/gemini-cli)** - `tembo run gemini`
-- **[Custom Agents](https://docs.tembo.io/cli/custom-agents)** - `tembo run [agent-name]` (Coming soon)
+- **[Claude Code](https://docs.anthropic.com/en/docs/claude-code)** - `tembo claude`
+- **[Sourcegraph Amp](https://sourcegraph.com/amp)** - `tembo amp`
+- **[Cursor CLI](https://cursor.com/cli)** - `tembo cursor`
+- **[Codex CLI](https://openai.com/codex/)** - `tembo codex`
+- **[Aider](https://aider.chat/)** - `tembo aider`
+- **[SST OpenCode](https://github.com/sst/opencode)** - `tembo opencode`
+- **[Charm Crush CLI](https://github.com/charmbracelet/crush)** - `tembo crush`
+- **[Gemini CLI](https://github.com/google-gemini/gemini-cli)** - `tembo gemini`
+- **[Custom Agents](https://docs.tembo.io/cli/custom-agents)** - `tembo [agent-name]` (Coming soon)
 
 ## Execution Modes
 
