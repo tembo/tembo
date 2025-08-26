@@ -45,6 +45,7 @@ Tembo works with all major coding agents:
 - **[SST OpenCode](https://github.com/sst/opencode)** - `tembo run opencode`
 - **[Charm Crush CLI](https://github.com/charmbracelet/crush)** - `tembo run crush`
 - **[Gemini CLI](https://github.com/google-gemini/gemini-cli)** - `tembo run gemini`
+- **[Custom Agents](https://docs.tembo.io/cli/custom-agents)** - `tembo run [agent-name]` (Coming soon)
 
 ## Execution Modes
 
@@ -92,7 +93,17 @@ tembo dashboard
 
 Track agent performance, compare results, and analyze usage patterns across all your coding agents.
 
-## Team Collaboration
+## Cloud Features
+
+Sign up for cloud execution and collaboration capabilities:
+
+```bash
+tembo login
+tembo run --background [agent] "[task description]"
+tembo status  # Check background task status
+```
+
+## Team Collaboration (Coming soon)
 
 Share coding sessions and collaborate seamlessly across any agent:
 
@@ -104,38 +115,11 @@ tembo share [session-id]  # Share specific coding session with team
 
 Collaborate with your team regardless of which coding agent they prefer - share threads, conversations, and entire coding sessions for seamless teamwork.
 
-## Cloud Features
-
-Sign up for cloud execution and collaboration capabilities:
-
-```bash
-tembo login
-tembo run --background [agent] "[task description]"
-tembo status  # Check background task status
-```
-
 ## Components
 
 ### CLI
 
 The main command-line interface for running agents and managing tasks.
-
-### SDK
-
-Programatic interface to tembo cloud:
-
-```bash
-npm install @tembo/sdk
-```
-
-```javascript
-import { Tembo } from "@tembo/sdk"
-
-const tembo = new Tembo({
-  apiKey: "your-api-key",
-})
-await tembo.run("claude-code", "Fix the bug in utils.js")
-```
 
 ### Proxy
 
