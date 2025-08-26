@@ -27,7 +27,7 @@ tembo codex
 
 - **Intelligent task routing** - Tembo intelligently routes tasks to the best agent for the job (optional via running "tembo '<insert-task-here>' and not specifying an agent name)
 
-- **Multi-agent modes** - Run multiple agents simultaneously with intelligent orchestration
+- **Multi-agent modes** - Run multiple agents simultaneously (`MAX` mode)
 
 - **Background execution** - Kick off long-running tasks in the cloud with any coding agent (requires tembo account)
 
