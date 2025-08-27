@@ -56,7 +56,7 @@ Tembo works with all major coding agents:
 Run a single coding agent:
 
 ```bash
-tembo run claude-code "Fix the authentication bug in src/auth.js"
+tembo claude
 ```
 
 ### MAX Mode
