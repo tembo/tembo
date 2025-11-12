@@ -2,41 +2,57 @@
 
 # tembo
 
-**One CLI, all the coding agents.**
+**one cli, all the coding agents.**
 
 Tembo CLI is a unified interface for working with the best AI coding agents available. Stop switching between tools—access Claude Code, Codex, Amp, and more from a single command line interface.
 
 ## Features
 
 ### Universal Agent Access
+
 - **Multiple Agents**: Work with Claude Code, Codex, Amp, and other leading coding agents
 - **Unified Interface**: One consistent CLI experience across all agents
 - **Seamless Switching**: Change between agents without changing your workflow
 
 ### Tembo Max
+
 Upgrade to Tembo Max for premium features:
+
 - **Unified Access**: Single subscription for all supported coding agents
 - **MAX Mode**: Intelligent auto-selection of the best agent/model combination for your task
 - **Priority Support**: Get help when you need it
 
 ### Cloud & Local Integration
+
 When logged into Tembo:
+
 - **Cloud Tasks**: Start long-running tasks in the cloud
 - **Resume Anywhere**: Begin work in the cloud, continue locally (or vice versa)
 - **Seamless Sync**: Your context and progress travel with you
 
 ### Security & Isolation
+
 - **Local Sandboxing**: Execute code in secure, isolated environments
 - **Safe Experimentation**: Test and run code without risking your system
 
+### Thread Sharing & Social Coding
+
+Collaborate with your team by sharing coding agent conversations:
+
+- **Share Threads**: Export and share agent conversation threads with teammates
+- **Team Collaboration**: Review AI-assisted solutions and learn from each other's approaches
+- **Knowledge Transfer**: Preserve context and decision-making process for future reference
+- **Async Collaboration**: Team members can view, fork, and continue shared threads
+
 ### Coming Soon
+
 - **Git Worktree Support**: Manage multiple branches and workspaces efficiently
 
 ## Installation
 
 ```bash
 # Coming soon
-npm install -g tembo-cli
+npm install -g tembo
 ```
 
 ## Quick Start
@@ -112,6 +128,29 @@ tembo --sandbox
 tembo config sandbox
 ```
 
+### Slack Commands
+
+Switch between agents seamlessly using slash commands in your conversation:
+
+```bash
+# Interactive agent selector
+/agent
+
+# Switch to Claude Code
+/claude-code
+
+# Switch to Codex
+/codex
+
+# Switch to Amp
+/amp
+
+# Enable MAX mode (auto-selects best agent)
+/max
+```
+
+Use `/agent` for an interactive selector, or use specific commands to switch directly. Slack commands allow you to change agents mid-conversation without losing context.
+
 ## Configuration
 
 Configure Tembo to match your preferences:
@@ -130,11 +169,13 @@ tembo config list
 ## Subscription Tiers
 
 ### Free
+
 - Access to select coding agents
 - Local execution
 - Basic features
 
 ### Tembo Max
+
 - All supported coding agents
 - MAX mode with intelligent routing
 - Cloud task execution
