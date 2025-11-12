@@ -62,7 +62,7 @@ npm install -g tembo
 tembo
 
 # Use a specific agent
-tembo --agent claude-code
+tembo --agent claudeCode
 
 # Enable MAX mode (requires Tembo Max subscription)
 tembo --max
@@ -83,7 +83,7 @@ tembo cloud resume <task-id>
 tembo
 
 # Run with specific agent
-tembo --agent [claude-code|codex|amp]
+tembo --agent [claudeCode|codex|amp]
 
 # Check status
 tembo status
