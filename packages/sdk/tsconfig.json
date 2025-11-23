@@ -21,9 +21,5 @@
 		"noUnusedLocals": false,
 		"noUnusedParameters": false,
 		"noPropertyAccessFromIndexSignature": false
-	},
-	"references": [
-		{ "path": "./packages/cli" },
-		{ "path": "./packages/sdk" }
-	]
+	}
 }

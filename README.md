@@ -48,6 +48,30 @@ Collaborate with your team by sharing coding agent conversations:
 
 - **Git Worktree Support**: Manage multiple branches and workspaces efficiently
 
+## Repository Structure
+
+This is a monorepo managed with [Bun workspaces](https://bun.com/docs/pm/workspaces):
+
+```
+tembo/
+├── packages/
+│   ├── cli/          # Tembo CLI application
+│   └── sdk/          # Tembo SDK (coming soon)
+├── package.json      # Workspace configuration
+└── bun.lock
+```
+
+### Development
+
+```bash
+# Install all workspace dependencies
+bun install
+
+# Run the CLI locally (from the cli package)
+cd packages/cli
+bun run src/index.tsx
+```
+
 ## Installation
 
 ```bash
