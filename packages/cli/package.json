@@ -1,15 +1,17 @@
 {
 	"name": "tembo",
-	"version": "0.1.0",
+	"version": "0.0.3",
 	"module": "src/index.tsx",
 	"type": "module",
-	"private": true,
 	"bin": {
 		"tembo": "./src/index.tsx"
 	},
-	"scripts": {
-		"pretty": "prettier --write \"./**/*.{ts,tsx,json}\" --config ./.prettierrc.json"
-	},
+	"files": [
+		"src",
+		"tsconfig.json",
+		"../../README.md"
+	],
+	"scripts": {},
 	"devDependencies": {
 		"@types/bun": "latest",
 		"prettier": "^3.5.3"
