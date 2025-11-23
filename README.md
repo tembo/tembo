@@ -190,6 +190,80 @@ tembo config set-key <agent-name> <api-key>
 tembo config list
 ```
 
+## Usage Tracking
+
+Tembo provides comprehensive usage tracking to help you monitor and manage your AI coding agent usage effectively.
+
+### Per-User Usage Tracking
+
+When logged into Tembo, usage is tracked on a per-user basis:
+
+- **Individual Metrics**: Track your personal usage across all agents and sessions
+- **Token Consumption**: Monitor API token usage for each agent (Claude Code, Codex, Amp)
+- **Session History**: View detailed logs of your coding sessions and agent interactions
+- **Cost Tracking**: Understand your usage costs per agent and per session
+
+### Viewing Your Usage
+
+```bash
+# View your current usage statistics
+tembo usage
+
+# View detailed usage breakdown by agent
+tembo usage --by-agent
+
+# View usage for a specific time period
+tembo usage --from 2024-01-01 --to 2024-01-31
+
+# Export usage data
+tembo usage export --format [json|csv]
+```
+
+### Usage Limits
+
+Depending on your subscription tier, different usage limits apply:
+
+**Free Tier:**
+- Limited agent access
+- Basic usage tracking
+- Monthly token limits per agent
+
+**Tembo Max:**
+- Unlimited access to all agents
+- Advanced usage analytics
+- Higher token limits
+- Priority processing
+
+### Team Usage Management
+
+For organizations using Tembo:
+
+- **Team Dashboard**: View aggregated usage across team members
+- **User-Level Breakdown**: Track individual contributor usage within your organization
+- **Budget Controls**: Set usage limits and alerts per user or per team
+- **Billing Attribution**: Automatically attribute usage to the appropriate cost centers
+
+### Usage Notifications
+
+Stay informed about your usage:
+
+```bash
+# Enable usage alerts
+tembo config set usage-alerts true
+
+# Set usage warning threshold (percentage of limit)
+tembo config set usage-warning-threshold 80
+
+# Configure notification preferences
+tembo config set usage-notifications [email|cli|both]
+```
+
+You'll receive notifications when:
+- You reach 80% of your usage limit
+- You reach 100% of your usage limit
+- Monthly usage resets
+- Unusual usage patterns are detected
+
 ## Subscription Tiers
 
 ### Free
