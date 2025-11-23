@@ -153,7 +153,7 @@ async function main() {
 					(stream) => console.log(stream)
 				);
 
-				console.log('\n✓ Result:');
+				console.log('\n[OK] Result:');
 				console.log(result);
 			} catch (error) {
 				console.error(
@@ -188,7 +188,7 @@ async function main() {
 					dangerouslyAllowAll: options.yes,
 				});
 
-				console.log('\n✓ Result:');
+				console.log('\n[OK] Result:');
 				console.log(result);
 			} catch (error) {
 				console.error(
@@ -227,7 +227,7 @@ async function main() {
 					(stream) => console.log(stream)
 				);
 
-				console.log('\n✓ Result:');
+				console.log('\n[OK] Result:');
 				console.log(result);
 			} catch (error) {
 				console.error(

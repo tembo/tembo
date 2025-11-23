@@ -37,7 +37,7 @@ export async function claudeCode(
 		} else if (message.type === 'assistant') {
 			const content = message.message?.content?.[0];
 			if (content && content.type === 'tool_use') {
-				onStream(`→ Using ${content.name}...`);
+				onStream(`-> Using ${content.name}...`);
 			} else {
 				onStream(content.text);
 			}
