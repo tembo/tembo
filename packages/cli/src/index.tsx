@@ -87,18 +87,17 @@ async function main() {
 
 				if (selectedAgent) {
 					return (
-						<box flexDirection='column' flexGrow={1}>
-							<box flexDirection='column' style={{ flexGrow: 1 }}>
+						<box flexDirection='column' height='100%'>
+							<box flexDirection='column' flexGrow={1} overflow='scroll'>
 								{convoStream.map((line, i) => (
 									<text key={i}>{line}</text>
 								))}
 								{isLoading && <LoadingShimmer />}
 							</box>
-							<box style={{ marginTop: 1 }}>
+							<box flexShrink={0} marginTop={1}>
 								<PromptInput
 									onSubmit={handlePromptSubmit}
 									onCancel={handleCancel}
-									disabled={isLoading}
 								/>
 							</box>
 						</box>
