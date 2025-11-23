@@ -10,14 +10,15 @@ interface AmpOptions {
 
 export async function amp(
 	config: Config,
-	options: AmpOptions
+	options: AmpOptions,
+	onStream: (stream: string) => void
 ): Promise<string> {
 	if (config.ampApiKey) process.env.AMP_API_KEY = config.ampApiKey;
 
 	const executeOptions = {
 		cwd: options.cwd,
 		continue: options.continue,
-		dangerouslyAllowAll: options.dangerouslyAllowAll ?? false,
+		dangerouslyAllowAll: options.dangerouslyAllowAll ?? true,
 		...config.amp,
 	};
 
@@ -26,17 +27,19 @@ export async function amp(
 		options: executeOptions,
 	})) {
 		if (message.type === 'system') {
-			console.log(
-				'Amp initialized with tools:',
-				message.tools?.slice(0, 5).join(', ')
-			);
+			// onStream(
+			// 	`Amp initialized with tools: ${message.tools?.slice(0, 5).join(', ')}`
+			// );
 		} else if (message.type === 'assistant') {
 			const content = message.message.content[0];
 			if (content && content.type === 'tool_use') {
-				console.log(`→ Using ${content.name}...`);
+				onStream(`→ Using ${content.name}...`);
+			} else if (content && content.type === 'text') {
+				onStream(content.text);
 			}
 		} else if (message.type === 'result') {
 			if (message.is_error) {
+				onStream(`Amp error: ${message.error}`);
 				throw new Error(`Amp error: ${message.error}`);
 			}
 			return message.result;

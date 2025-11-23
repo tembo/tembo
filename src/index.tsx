@@ -2,9 +2,12 @@
 import { createCliRenderer } from '@opentui/core';
 import { createRoot } from '@opentui/react';
 import { Command } from 'commander';
+import { useState } from 'react';
 import { loadConfig } from './config';
-import { amp, codex, claudeCode } from './agents';
+import { amp, codex, claudeCode, getAgentKeys } from './agents';
 import { AgentSelector } from './components/AgentSelector';
+import { PromptInput } from './components/PromptInput';
+import { LoadingShimmer } from './components/LoadingShimmer';
 
 async function main() {
 	const program = new Command();
@@ -14,15 +17,67 @@ async function main() {
 		.description('one cli, all the coding agents.')
 		.version('1.0.0')
 		.action(async () => {
-			const agents = ['amp', 'codex', 'claude'];
+			const agents = getAgentKeys();
 			const renderer = await createCliRenderer();
 			const root = createRoot(renderer);
 
 			function App() {
-				function handleSelect(agent: string) {
-					root.unmount();
-					console.log(`Selected agent: ${agent}`);
-					process.exit(0);
+				const [selectedAgent, setSelectedAgent] = useState<string | null>(null);
+				const [convoStream, setConvoStream] = useState<string[]>([]);
+				const [isLoading, setIsLoading] = useState(false);
+
+				async function handlePromptSubmit(prompt: string) {
+					const config = loadConfig();
+					setConvoStream((prev) => [...prev, `> ${prompt}`]);
+					setIsLoading(true);
+
+					try {
+						if (selectedAgent === 'amp') {
+							if (!config.ampApiKey && !process.env.AMP_API_KEY) {
+								setConvoStream((prev) => [
+									...prev,
+									'Error: ampApiKey not set in config',
+									'Run: tembo config',
+								]);
+								setIsLoading(false);
+								return;
+							}
+							await amp(config, { prompt }, (message) => {
+								setConvoStream((prev) => [...prev, message]);
+							});
+						} else if (selectedAgent === 'codex') {
+							if (!config.codexApiKey && !process.env.OPENAI_API_KEY) {
+								setConvoStream((prev) => [
+									...prev,
+									'Error: codexApiKey not set in config',
+									'Run: tembo config',
+								]);
+								setIsLoading(false);
+								return;
+							}
+							await codex(config, { prompt });
+						} else if (selectedAgent === 'claudeCode') {
+							if (!config.claudeCodeApiKey && !process.env.ANTHROPIC_API_KEY) {
+								setConvoStream((prev) => [
+									...prev,
+									'Error: claudeCodeApiKey not set in config',
+									'Run: tembo config',
+								]);
+								setIsLoading(false);
+								return;
+							}
+							await claudeCode(config, { prompt }, (message) => {
+								setConvoStream((prev) => [...prev, message]);
+							});
+						}
+						setIsLoading(false);
+					} catch (error) {
+						setConvoStream((prev) => [
+							...prev,
+							`Error: ${error instanceof Error ? error.message : String(error)}`,
+						]);
+						setIsLoading(false);
+					}
 				}
 
 				function handleCancel() {
@@ -30,11 +85,31 @@ async function main() {
 					process.exit(0);
 				}
 
+				if (selectedAgent) {
+					return (
+						<box flexDirection='column' flexGrow={1}>
+							<box flexDirection='column' style={{ flexGrow: 1 }}>
+								{convoStream.map((line, i) => (
+									<text key={i}>{line}</text>
+								))}
+								{isLoading && <LoadingShimmer />}
+							</box>
+							<box style={{ marginTop: 1 }}>
+								<PromptInput
+									onSubmit={handlePromptSubmit}
+									onCancel={handleCancel}
+									disabled={isLoading}
+								/>
+							</box>
+						</box>
+					);
+				}
+
 				return (
 					<box>
 						<AgentSelector
 							agents={agents}
-							onSelect={handleSelect}
+							onSelect={setSelectedAgent}
 							onCancel={handleCancel}
 						/>
 					</box>
@@ -68,12 +143,16 @@ async function main() {
 					process.exit(1);
 				}
 
-				const result = await amp(config, {
-					prompt,
-					cwd: options.cwd,
-					continue: options.continue === true ? true : options.continue,
-					dangerouslyAllowAll: options.yes,
-				});
+				const result = await amp(
+					config,
+					{
+						prompt,
+						cwd: options.cwd,
+						continue: options.continue === true ? true : options.continue,
+						dangerouslyAllowAll: options.yes,
+					},
+					(stream) => console.log(stream)
+				);
 
 				console.log('\n✓ Result:');
 				console.log(result);
@@ -138,12 +217,16 @@ async function main() {
 					process.exit(1);
 				}
 
-				const result = await claudeCode(config, {
-					prompt,
-					cwd: options.cwd,
-					continue: options.continue === true ? true : options.continue,
-					dangerouslyAllowAll: options.yes,
-				});
+				const result = await claudeCode(
+					config,
+					{
+						prompt,
+						cwd: options.cwd,
+						continue: options.continue === true ? true : options.continue,
+						dangerouslyAllowAll: options.yes,
+					},
+					(stream) => console.log(stream)
+				);
 
 				console.log('\n✓ Result:');
 				console.log(result);
