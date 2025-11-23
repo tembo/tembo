@@ -3,7 +3,9 @@
 	"version": "0.1.0",
 	"type": "module",
 	"private": true,
-	"workspaces": ["packages/*"],
+	"workspaces": [
+		"packages/*"
+	],
 	"scripts": {
 		"pretty": "prettier --write \"./**/*.{ts,tsx,json}\" --config ./.prettierrc.json"
 	},
