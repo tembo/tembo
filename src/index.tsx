@@ -1,9 +1,10 @@
 #!/usr/bin/env bun
-import { TextAttributes, createCliRenderer } from '@opentui/core';
+import { createCliRenderer } from '@opentui/core';
 import { createRoot } from '@opentui/react';
 import { Command } from 'commander';
 import { loadConfig } from './config';
 import { amp, codex, claudeCode } from './agents';
+import { AgentSelector } from './components/AgentSelector';
 
 async function main() {
 	const program = new Command();
@@ -13,19 +14,34 @@ async function main() {
 		.description('one cli, all the coding agents.')
 		.version('1.0.0')
 		.action(async () => {
+			const agents = ['amp', 'codex', 'claude'];
+			const renderer = await createCliRenderer();
+			const root = createRoot(renderer);
+
 			function App() {
+				function handleSelect(agent: string) {
+					root.unmount();
+					console.log(`Selected agent: ${agent}`);
+					process.exit(0);
+				}
+
+				function handleCancel() {
+					root.unmount();
+					process.exit(0);
+				}
+
 				return (
-					<box alignItems='center' justifyContent='center' flexGrow={1}>
-						<box justifyContent='center' alignItems='flex-end'>
-							<ascii-font font='tiny' text='OpenTUI' />
-							<text attributes={TextAttributes.DIM}>What will you build?</text>
-						</box>
+					<box>
+						<AgentSelector
+							agents={agents}
+							onSelect={handleSelect}
+							onCancel={handleCancel}
+						/>
 					</box>
 				);
 			}
 
-			const renderer = await createCliRenderer();
-			createRoot(renderer).render(<App />);
+			root.render(<App />);
 		});
 
 	program
