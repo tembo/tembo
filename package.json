@@ -1,10 +1,10 @@
 {
 	"name": "tembo",
-	"module": "src/index.ts",
+	"module": "src/index.tsx",
 	"type": "module",
 	"private": true,
 	"bin": {
-		"tembo": "./src/index.ts"
+		"tembo": "./src/index.tsx"
 	},
 	"scripts": {
 		"pretty": "prettier --write \"./**/*.{ts,tsx,json}\" --config ./.prettierrc.json"
