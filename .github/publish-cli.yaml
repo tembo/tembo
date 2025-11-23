@@ -1,9 +1,9 @@
-name: Publish SDK and CLI
+name: Publish CLI
 
 on:
   push:
     tags:
-      - 'v*'
+      - 'cli-v*'
   workflow_dispatch:
     inputs:
       version:
@@ -36,38 +36,20 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             VERSION="${{ github.event.inputs.version }}"
           else
-            VERSION="${GITHUB_REF#refs/tags/v}"
+            VERSION="${GITHUB_REF#refs/tags/cli-v}"
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "Publishing version: $VERSION"
-
-      - name: Update SDK version
-        run: |
-          cd packages/sdk
-          bun version ${{ steps.version.outputs.version }}
+          echo "Publishing CLI version: $VERSION"
 
       - name: Update CLI version
         run: |
           cd packages/cli
           bun version ${{ steps.version.outputs.version }}
 
-      - name: Build SDK
-        run: |
-          cd packages/sdk
-          bun run build || echo "No build script defined, skipping"
-
       - name: Build CLI
         run: |
           cd packages/cli
           bun run build || echo "No build script defined, skipping"
-
-      - name: Publish SDK to npm
-        run: |
-          cd packages/sdk
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
-          npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish CLI to npm
         run: |
@@ -83,6 +65,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: Release ${{ steps.version.outputs.version }}
+          release_name: CLI Release ${{ steps.version.outputs.version }}
           draft: false
           prerelease: false
