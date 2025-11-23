@@ -20,7 +20,7 @@ export async function claudeCode(
 		cwd: options.cwd,
 		continue: options.continue ?? true,
 		resume: typeof options.continue === 'string' ? options.continue : undefined,
-		dangerouslyAllowAll: options.dangerouslyAllowAll ?? true,
+		allowDangerouslySkipPermissions: options.dangerouslyAllowAll ?? true,
 		...config.claudeCode,
 	};
 
