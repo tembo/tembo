@@ -1,4 +1,4 @@
-import { query } from '@anthropic-ai/claude-agent-sdk';
+import { query, type PermissionMode } from '@anthropic-ai/claude-agent-sdk';
 import type { Config } from '../config';
 
 interface ClaudeCodeOptions {
@@ -21,7 +21,7 @@ export async function claudeCode(
 		continue: options.continue ?? true,
 		resume: typeof options.continue === 'string' ? options.continue : undefined,
 		allowDangerouslySkipPermissions: options.dangerouslyAllowAll ?? true,
-		...config.claudeCode,
+		permissionMode: 'bypassPermissions' as PermissionMode,
 	};
 
 	let sessionId: string | undefined;
