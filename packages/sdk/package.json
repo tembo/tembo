@@ -1,0 +1,16 @@
+{
+	"name": "@tembo/sdk",
+	"version": "0.1.0",
+	"module": "src/index.ts",
+	"type": "module",
+	"main": "src/index.ts",
+	"types": "src/index.ts",
+	"scripts": {
+		"pretty": "prettier --write \"./**/*.{ts,tsx,json}\" --config ../../.prettierrc.json"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"typescript": "^5"
+	},
+	"dependencies": {}
+}

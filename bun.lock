@@ -3,6 +3,18 @@
   "workspaces": {
     "": {
       "name": "tembo",
+      "devDependencies": {
+        "@types/bun": "latest",
+        "prettier": "^3.5.3",
+        "typescript": "^5",
+      },
+    },
+    "packages/cli": {
+      "name": "@tembo/cli",
+      "version": "0.1.0",
+      "bin": {
+        "tembo": "./src/index.tsx",
+      },
       "dependencies": {
         "@anthropic-ai/claude-agent-sdk": "^0.1.29",
         "@openai/codex-sdk": "^0.50.0",
@@ -18,6 +30,14 @@
         "prettier": "^3.5.3",
       },
       "peerDependencies": {
+        "typescript": "^5",
+      },
+    },
+    "packages/sdk": {
+      "name": "@tembo/sdk",
+      "version": "0.1.0",
+      "devDependencies": {
+        "@types/bun": "latest",
         "typescript": "^5",
       },
     },
@@ -152,6 +172,10 @@
     "@sourcegraph/amp": ["@sourcegraph/amp@0.0.1763866589-gb57566", "", { "dependencies": { "@napi-rs/keyring": "1.1.9" }, "bin": { "amp": "dist/main.js" } }, "sha512-a0esOhcOynqr004Prhnv7IOmVwyJ++pwdcizxan59Tc6cP+X50EaPO4ES3VDQtx+qWAaaxo6jFT6WaT6d5sy+w=="],
 
     "@sourcegraph/amp-sdk": ["@sourcegraph/amp-sdk@0.1.0-20251029183144-g02378e6", "", { "dependencies": { "@sourcegraph/amp": "latest", "zod": "^3.23.8" } }, "sha512-o3T40S07BWAS3/5P1exn/0emodQ4FvEmZeOOeOqwMmCsrFXYnJCVOXSS82c2okOEhliRLUsomMOxMLS0ILY1uQ=="],
+
+    "@tembo/cli": ["@tembo/cli@workspace:packages/cli"],
+
+    "@tembo/sdk": ["@tembo/sdk@workspace:packages/sdk"],
 
     "@tokenizer/token": ["@tokenizer/token@0.3.0", "", {}, "sha512-OvjF+z51L3ov0OyAU0duzsYuvO01PH7x4t6DJx+guahgTnBHkhJdG7soQeTSFLWN3efnHyibZ4Z8l2EuWwJN3A=="],
 

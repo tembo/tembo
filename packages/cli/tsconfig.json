@@ -1,9 +1,11 @@
 {
 	"compilerOptions": {
 		// Environment setup & latest features
-		"lib": ["ESNext"],
+		"lib": ["ESNext", "DOM"],
 		"target": "ESNext",
 		"module": "ESNext",
+		"jsx": "react-jsx",
+		"jsxImportSource": "@opentui/react",
 
 		// Bundler mode
 		"moduleResolution": "bundler",
@@ -21,9 +23,5 @@
 		"noUnusedLocals": false,
 		"noUnusedParameters": false,
 		"noPropertyAccessFromIndexSignature": false
-	},
-	"references": [
-		{ "path": "./packages/cli" },
-		{ "path": "./packages/sdk" }
-	]
+	}
 }
