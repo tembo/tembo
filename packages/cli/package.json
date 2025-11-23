@@ -1,5 +1,5 @@
 {
-	"name": "@tembo/cli",
+	"name": "tembo",
 	"version": "0.1.0",
 	"module": "src/index.tsx",
 	"type": "module",
