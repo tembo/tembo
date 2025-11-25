@@ -35,7 +35,7 @@ When logged into Tembo:
 - **Local Sandboxing**: Execute code in secure, isolated environments
 - **Safe Experimentation**: Test and run code without risking your system
 
-### Thread Sharing & Social Coding
+### Thread Sharing / Team Collaboration & Social Coding
 
 Collaborate with your team by sharing coding agent conversations:
 
