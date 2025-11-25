@@ -43,6 +43,7 @@ Collaborate with your team by sharing coding agent conversations:
 - **Team Collaboration**: Review AI-assisted solutions and learn from each other's approaches
 - **Knowledge Transfer**: Preserve context and decision-making process for future reference
 - **Async Collaboration**: Team members can view, fork, and continue shared threads
+- **Public Developer Profiles**: Showcase your AI-assisted coding activity with a public contribution graph similar to GitHub, displaying your usage across different coding agents and building your portfolio of AI collaboration work
 
 ### Coming Soon
 
