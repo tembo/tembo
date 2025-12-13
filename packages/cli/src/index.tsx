@@ -16,6 +16,7 @@ async function main() {
 		.name('tembo')
 		.description('one cli, all the coding agents.')
 		.version('1.0.0')
+		.enablePositionalOptions(true)
 		.action(async () => {
 			const agents = getAgentKeys();
 			const renderer = await createCliRenderer();
@@ -232,6 +233,86 @@ async function main() {
 			} catch (error) {
 				console.error(
 					'Error:',
+					error instanceof Error ? error.message : String(error)
+				);
+				process.exit(1);
+			}
+		});
+
+	// Map of tool aliases to their binary names
+	const toolBinaries: Record<string, string> = {
+		'codex': 'codex',
+		'claude': 'claude',
+		'claude-code': 'claude',
+		'amp': 'amp',
+		'ampcode': 'amp',
+	};
+
+	// Helper function to find the binary path
+	async function findBinaryPath(binaryName: string): Promise<string | null> {
+		const { existsSync } = await import('fs');
+		const { dirname, join } = await import('path');
+		const { fileURLToPath } = await import('url');
+
+		const currentDir = dirname(fileURLToPath(import.meta.url));
+
+		// Possible locations for the binary (in order of preference)
+		const possiblePaths = [
+			// Local package node_modules/.bin
+			join(currentDir, '..', 'node_modules', '.bin', binaryName),
+			// Workspace root node_modules/.bin (monorepo setup)
+			join(currentDir, '..', '..', '..', 'node_modules', '.bin', binaryName),
+			// Global bun installation path
+			join(process.env.HOME || '', '.bun', 'bin', binaryName),
+		];
+
+		for (const binPath of possiblePaths) {
+			if (existsSync(binPath)) {
+				return binPath;
+			}
+		}
+
+		return null;
+	}
+
+	program
+		.command('run', { isDefault: false })
+		.description('run external CLI tools (codex, claude-code, amp)')
+		.argument('<tool>', 'the tool to run (codex, claude, claude-code, amp, ampcode)')
+		.argument('[args...]', 'arguments to pass to the tool')
+		.allowUnknownOption(true)
+		.passThroughOptions(true)
+		.action(async (tool: string, args: string[]) => {
+			const binaryName = toolBinaries[tool.toLowerCase()];
+
+			if (!binaryName) {
+				console.error(`Error: Unknown tool '${tool}'`);
+				console.error('Available tools: codex, claude, claude-code, amp, ampcode');
+				process.exit(1);
+			}
+
+			const binPath = await findBinaryPath(binaryName);
+
+			if (!binPath) {
+				console.error(`Error: Could not find binary for '${tool}'`);
+				console.error('Make sure the package is installed correctly.');
+				process.exit(1);
+			}
+
+			try {
+				const proc = Bun.spawn([binPath, ...args], {
+					stdin: 'inherit',
+					stdout: 'inherit',
+					stderr: 'inherit',
+					cwd: process.cwd(),
+					env: process.env,
+				});
+
+				const exitCode = await proc.exited;
+				process.exit(exitCode);
+			} catch (error) {
+				console.error(
+					`Error running ${tool}:`,
 					error instanceof Error ? error.message : String(error)
 				);
 				process.exit(1);
