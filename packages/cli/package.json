@@ -21,9 +21,12 @@
 	},
 	"dependencies": {
 		"@anthropic-ai/claude-agent-sdk": "^0.1.29",
+		"@anthropic-ai/claude-code": "^2.0.69",
+		"@openai/codex": "^0.72.0",
 		"@openai/codex-sdk": "^0.50.0",
 		"@opentui/core": "^0.1.41",
 		"@opentui/react": "^0.1.46",
+		"@sourcegraph/amp": "^0.0.1765584106-g41cf5e",
 		"@sourcegraph/amp-sdk": "^0.1.0-20251029183144-g02378e6",
 		"commander": "^14.0.2",
 		"react": "^19.2.0",
