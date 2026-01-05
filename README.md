@@ -242,3 +242,12 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 ---
 
 Built with care by the Tembo team
+
+## Poem
+
+Tembo hums in command-line light,
+A chorus of agents taking flight.
+Claude and Codex, Amp in tow,
+One CLI where ideas flow.
+Cloud or local, chosen stance,
+Coding dreams in unified dance.
